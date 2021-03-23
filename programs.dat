@@ -1,0 +1,73 @@
+arandr						arandr
+calibre						calibre
+chromium					chromium --password-store=basic
+celluloid					celluloid
+restartPicom				killall picom ; picom &
+lxappearance				lxappearance
+dia							dia
+discord						discord
+evincePdfDocument			evince
+filelight					filelight
+thunarFilemanager			thunar
+goldenDict					goldendict
+gparted						st -e "sudo gparted"
+gthumb						gthumb
+htop						st -e "htop"
+inkscape					inkscape
+intellij					intellij-idea-ultimate-edition
+kdeconnectFile				kdeconnect-cli --share "$(zenity --file-selection)" -d 45f1c7c9501f4073
+kdeconnectPhoto				kdeconnect-cli --photo "$(zenity --file-selection --directory)" -d 45f1c7c9501f4073
+kdenlive					kdenlive
+firefox						firefox
+firefoxPrivate				firefox --private-window
+flameshot					flameshot gui
+geogebra					geogebra
+gimp						gimp
+krita						krita
+kvantum						kvantummanager
+libreOffice					libreoffice
+libreOfficeMath				libreoffice --math
+libreOfficeCalc				libreoffice --calc
+libreOfficeWriter			libreoffice --writer
+libreOfficeBase				libreoffice --base
+libreOfficeDraw				libreoffice --draw
+libreOfficeImpress			libreoffice --impress
+masterPdfEditor				masterpdfeditor4
+matlab						matlab
+thunderbird					thunderbird
+OBS							obs
+openshot					openshot-qt
+pavucontrol					pavucontrol
+ranger						st -e "ranger"
+rhythmbox					rhythmbox
+shotcut						shotcut
+texstudio					texstudio
+texstudio-deutsch			LANGUAGE=de_DE.UTF-8 LANG=de_DE.UTF-8 texstudio
+xedTexteditor				xed
+totem						totem
+vlc							vlc
+veracrypt					veracrypt
+xarchiver					xarchiver
+xournal						xournalpp
+keepassxc					bspc rule -a KeePassXC desktop='^8' follow=off && keepassxc & sleep 10 ; bspc rule -r KeePassXC
+zathura						zathura
+st							st
+terminal					st
+shutdown					shutdown now
+surfClip					surf $(xclip -o)
+surf						surf
+gnucash						LANGUAGE=de_DE.UTF-8 LANG=de_DE.UTF-8 gnucash
+yubikeyAuthenticator		yubioath-desktop
+cawbird						cawbird
+peekGifScreen				peek
+discord-overlayOpen			discover-overlay
+discord-overlayXClose		killall discover-overlay
+twitter						cawbird
+matrixMirage				mirage
+#
+smartphoneScreen			scrcpy --bit-rate 2M -m 1280 --lock-video-orientation 0
+#via wifi: connect via USB, run `adb tcpip 5555`, unplug, connect via `adb connect DEVICE_IP:5555`, run scrcpy as usual
+virt-manager				virt-manager
+virtualBox					virtualbox
+slack						slack
+signal						signal-desktop
