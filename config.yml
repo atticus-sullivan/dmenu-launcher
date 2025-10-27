@@ -1,0 +1,4 @@
+progs:
+  arandr:               "arandr"
+  chromium:             "chromium --password-store=basic"
+  firefox:              "firefox"
