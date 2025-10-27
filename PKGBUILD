@@ -1,6 +1,6 @@
 # Maintainer: Lukas Heindl <oss.heindl@protonmail.com>
 pkgname=dmenu-launcher
-pkgver=0.9.0
+pkgver=1.0.0
 pkgrel=1
 pkgdesc="A simple app launcher using dmenu"
 arch=('x86_64')
@@ -35,5 +35,5 @@ package() {
 	cd "dmenu-launcher-${pkgver}"
 	install -Dm755 "target/release/dmenu-launcher-utils" "$pkgdir/usr/local/bin/dmenu-launcher-utils"
 	install -Dm755 "dmenu-launcher.bash"                 "$pkgdir/usr/local/bin/dmenu-launcher"
-	install -Dm755 "config.yml"                          "$pkgdir/usr/local/etc/dmenu-launcher.yml"
+	install -Dm644 "config.yml"                          "$pkgdir/usr/local/etc/dmenu-launcher.yml"
 }

@@ -16,7 +16,7 @@ pub struct Config {
 struct Cli {
     #[command(subcommand)]
     cmd: Commands,
-    #[arg(short = 'c', long = "config", default_value = "None")]
+    #[arg(short = 'c', long = "config")]
     config: Option<PathBuf>,
 }
 #[derive(Subcommand, Debug)]
@@ -48,7 +48,9 @@ fn get_config_path() -> Result<std::path::PathBuf> {
 }
 
 fn load_config(c: PathBuf) -> Result<Config> {
-    let content: Config = serde_yaml::from_reader(File::open(c)?)?;
+    let content: Config = serde_yaml::from_reader(
+        File::open(c.clone()).with_context(|| format!("Failed opening '{:?}'", c))?,
+    )?;
     Ok(content)
 }
 

@@ -1,4 +1,4 @@
-.PHONY: all run build buildAll buildRelease run check contCheck cont test
+.PHONY: all run build buildAll buildRelease run check contCheck cont test install pkg clean
 
 SRC_FILES = $(shell find src/ -iname "*.rs")
 
@@ -40,3 +40,13 @@ coverage:
 	$(RM) -r target/coverage/*
 	RUSTFLAGS='-Cinstrument-coverage' LLVM_PROFILE_FILE='target/profraw/cargo-test-%p-%m.profraw' cargo test
 	grcov target/profraw/ --binary-path ./target/debug/deps/ -s . -t html --branch --ignore-not-existing --ignore '../*' --ignore "/*" -o target/coverage
+
+install: pkg
+	makepkg -i
+
+pkg:
+	makepkg -c
+
+clean:
+	-$(RM) *.tar.gz
+	-paccache -r -c . -k 1

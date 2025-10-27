@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cmd="$(./target/release/dmenu-launcher-utils -c ./config.yml gen | sort | dmenu | ./target/release/dmenu-launcher-utils -c ./config.yml lut 2>&1)"
+cmd="$(dmenu-launcher-utils gen | sort | dmenu | dmenu-launcher-utils lut 2>&1)"
 
 # Check if the command was successful
 if [ $? -ne 0 ]; then
