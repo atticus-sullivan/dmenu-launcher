@@ -52,12 +52,12 @@ install-release: pkg-release
 pkg: pkg-dev
 
 pkg-release:
-	makepkg -D build-release -c
-	mv build-release/*.tar.zst .
+	makepkg -D pkg-release -c
+	mv pkg-release/*.tar.zst .
 
 pkg-dev:
-	makepkg -D build-dev -c
-	mv build-dev/*.tar.zst .
+	makepkg -D pkg-dev -c
+	mv pkg-dev/*.tar.zst .
 
 clean:
 	-$(RM) *.tar.gz *.tar.zst

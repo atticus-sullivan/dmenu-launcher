@@ -1,5 +1,5 @@
 /target
 *.pkg.tar.zst
 *.tar.gz
-/build-*/*
-!/build-*/PKGBUILD
+/pkg-*/*
+!/pkg-*/PKGBUILD
