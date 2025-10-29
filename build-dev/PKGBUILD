@@ -1,6 +1,6 @@
 # Maintainer: Lukas Heindl <oss.heindl@protonmail.com>
 pkgname=dmenu-launcher-dev
-pkgver=1.0.0
+pkgver=b659cb8
 pkgrel=1
 pkgdesc="A simple app launcher using dmenu built from git dev"
 arch=('x86_64')
@@ -11,14 +11,19 @@ optdepends=('dmenu: can also be installed manually')
 source=("${pkgname}::git+${url}.git#branch=dev")
 sha256sums=('SKIP')
 
+pkgver() {
+	cd "${pkgname}"
+	git rev-parse --short HEAD
+}
+
 prepare() {
-	cd "${pkgname}-${pkgver}"
+	cd "${pkgname}"
 	export RUSTUP_TOOLCHAIN=stable
 	cargo fetch --locked --target "$(rustc -vV | sed -n 's/host: //p')"
 }
 
 build() {
-	cd "${pkgname}-${pkgver}"
+	cd "${pkgname}"
 
 	export RUSTUP_TOOLCHAIN=stable
 	export CARGO_TARGET_DIR=target
@@ -32,7 +37,7 @@ check() {
 }
 
 package() {
-	cd "${pkgname}-${pkgver}"
+	cd "${pkgname}"
 	install -Dm755 "target/release/dmenu-launcher-utils" "$pkgdir/usr/local/bin/dmenu-launcher-utils"
 	install -Dm755 "dmenu-launcher.bash"                 "$pkgdir/usr/local/bin/dmenu-launcher"
 	install -Dm644 "config.yml"                          "$pkgdir/usr/local/etc/dmenu-launcher.yml"
