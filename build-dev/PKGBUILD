@@ -1,6 +1,6 @@
 # Maintainer: Lukas Heindl <oss.heindl@protonmail.com>
 pkgname=dmenu-launcher-dev
-pkgver=b659cb8
+pkgver=67b130a
 pkgrel=1
 pkgdesc="A simple app launcher using dmenu built from git dev"
 arch=('x86_64')

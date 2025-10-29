@@ -44,10 +44,10 @@ coverage:
 install: install-dev
 
 install-dev: pkg-dev
-	f="$$(find . -iname "dmenu-launcher-[a-f0-9.]*-x86_64.pkg.tar.zst" | head -n 1)" && sudo pacman -U "$$f"
+	f="$$(find . -iname "dmenu-launcher-[a-f0-9.]*-x86_64.pkg.tar.zst" | grep -v "debug" | head -n 1)" && sudo pacman -U "$$f"
 
 install-release: pkg-release
-	f="$$(find . -iname "dmenu-launcher-dev-[0-9.]*-x86_64.pkg.tar.zst" | head -n 1)" && sudo pacman -U "$$f"
+	f="$$(find . -iname "dmenu-launcher-dev-[0-9.]*-x86_64.pkg.tar.zst" | grep -v "debug" | head -n 1)" && sudo pacman -U "$$f"
 
 pkg: pkg-dev
 
