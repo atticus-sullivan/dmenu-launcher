@@ -1,12 +1,14 @@
 # Maintainer: Lukas Heindl <oss.heindl@protonmail.com>
 pkgname=dmenu-launcher
-pkgver=1.0.0
+pkgver=1.1.0
 pkgrel=1
 pkgdesc="A simple app launcher using dmenu"
 arch=('x86_64')
 url="https://github.com/atticus-sullivan/dmenu-launcher"
 license=('MIT')
 makedepends=('git' 'cargo')
+conflicts=("dmenu-launcher-dev")
+provides=("dmenu-launcher")
 optdepends=('dmenu: can also be installed manually')
 source=("dmenu-launcher-${pkgver}.tar.gz::${url}/archive/refs/tags/${pkgver}.tar.gz")
 sha256sums=('SKIP')
