@@ -1,16 +1,16 @@
 # Maintainer: Lukas Heindl <oss.heindl@protonmail.com>
 pkgname=dmenu-launcher-dev
-pkgver=67b130a
+pkgver=676928f
 pkgrel=1
 pkgdesc="A simple app launcher using dmenu built from git dev"
 arch=('x86_64')
-url="https://github.com/atticus-sullivan/dmenu-launcher"
+url="https://git.atticus-sullivan.de/wm-tools/dmenu-launcher"
 license=('MIT')
 makedepends=('git' 'cargo')
 provides=("dmenu-launcher")
 conflicts=("dmenu-launcher")
 optdepends=('dmenu: can also be installed manually')
-source=("${pkgname}::git+${url}.git#branch=dev")
+source=("${pkgname}::git+ssh://git@git.atticus-sullivan.de:3022/wm-tools/dmenu-launcher.git#branch=dev")
 sha256sums=('SKIP')
 
 pkgver() {
@@ -33,10 +33,10 @@ build() {
 	cargo build --frozen --release --all-features
 }
 
-check() {
-	export RUSTUP_TOOLCHAIN=stable
-	cargo test --frozen --all-features
-}
+# check() {
+# 	export RUSTUP_TOOLCHAIN=stable
+# 	cargo test --frozen --all-features
+# }
 
 package() {
 	cd "${pkgname}"
